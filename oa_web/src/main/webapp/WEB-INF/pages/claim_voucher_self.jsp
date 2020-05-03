@@ -21,12 +21,6 @@
                                 <button type="button" class="btn btn-default light">
                                     <i class="fa fa-refresh"></i>
                                 </button>
-                                <button type="button" class="btn btn-default light">
-                                    <i class="fa fa-trash"></i>
-                                </button>
-                                <button type="button" class="btn btn-default light">
-                                    <i class="fa fa-plus" onclick="javascript:window.location.href='/claim_voucher/to_add';"></i>
-                                </button>
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-9 text-right">

@@ -3,6 +3,7 @@
 <%@page pageEncoding="UTF-8" %>
 
 <jsp:include page="top.jsp"/>
+<%@page import="cn.edu.njit.oa.global.Contant" %>
 
 <section id="content" class="table-layout animated fadeIn">
     <div class="tray tray-center">
@@ -17,8 +18,6 @@
                         <div class="hidden-xs hidden-sm col-md-3">
                             <div class="btn-group">
                                 <a class="fa fa-refresh btn btn-default light"></a>
-                                <a class="fa fa-trash btn btn-default light"></a>
-                                <a class="fa fa-plus btn btn-default light" href="/employee/toAdd"></a>
                             </div>
                         </div>
                         <div class="col-xs-12 col-md-9 text-right">
@@ -61,12 +60,19 @@
                                         <span class="badge badge-warning mr10 fs11">${emp.post}</span>
                                     </td>
                                     <td>
-                                        <a class="btn btn-primary active btn-sm" href="/employee/toUpdate/${emp.id}">
-                                            <span class="glyphicon glyphicon-edit"></span> 编辑
-                                        </a>
-                                        <a class="btn btn-danger active btn-sm" href="/employee/remove/${emp.id}">
-                                            <span class="glyphicon glyphicon-trash"></span> 删除
-                                        </a>
+                                        <c:choose>
+                                            <c:when test="${sessionScope.employee.post==Contant.POST_GM}">
+                                                <a class="btn btn-primary active btn-sm" href="/employee/toUpdate/${emp.id}">
+                                                    <span class="glyphicon glyphicon-edit"></span> 编辑
+                                                </a>
+                                                <a class="btn btn-danger active btn-sm" href="/employee/remove/${emp.id}">
+                                                    <span class="glyphicon glyphicon-trash"></span> 删除
+                                                </a>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <span class="glyphicon glyphicon-exclamation-sign"></span> 无权限操作
+                                            </c:otherwise>
+                                        </c:choose>
                                     </td>
                                 </tr>
                             </c:forEach>

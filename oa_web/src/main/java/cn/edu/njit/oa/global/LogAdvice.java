@@ -27,11 +27,10 @@ public class LogAdvice {
     @AfterReturning(value = "login()||changePassword()")
     public void operationLog(JoinPoint joinPoint){
         HttpSession session = (HttpSession) joinPoint.getArgs()[0];
-//        RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
-//        ServletRequestAttributes servletRequestAttributes = (ServletRequestAttributes) requestAttributes;
-//        HttpServletRequest request = servletRequestAttributes.getRequest();
-//        HttpSession session = request.getSession();
         Employee employee = (Employee) session.getAttribute("employee");
+        if (employee == null) {
+            return;
+        }
         Log log = new Log();
         log.setEmployeeId(employee.getId());
         log.setOperationTime(new Date());

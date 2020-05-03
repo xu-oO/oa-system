@@ -3,6 +3,7 @@
 <%@page pageEncoding="UTF-8" %>
 
 <jsp:include page="top.jsp"/>
+<%@page import="cn.edu.njit.oa.global.Contant" %>
 
 <section id="content" class="table-layout animated fadeIn">
     <div class="tray tray-center">
@@ -39,10 +40,16 @@
                             <div class="col-md-6">
                                 <label for="id" class="field select">
                                     <select id="departmentId" name="departmentId" class="gui-input" placeholder="所属部门...">
-                                        <option value="10001">总经理办公室</option>
-                                        <option value="10002">财务部</option>
-                                        <option value="10003">研发部</option>
-                                        <option value="10004">销售部</option>
+                                        <c:choose>
+                                            <c:when test="${sessionScope.employee.post==Contant.POST_GM}">
+                                                <c:forEach items="${dlist}" var="department">
+                                                    <option value="${department.id}">${department.name}</option>
+                                                </c:forEach>
+                                            </c:when>
+                                            <c:when test="${sessionScope.employee.post==Contant.POST_FM}">
+                                                <option value="${sessionScope.employee.departmentId}">${sessionScope.employee.department.name}</option>
+                                            </c:when>
+                                        </c:choose>
                                     </select>
                                     <i class="arrow double"></i>
                                 </label>
@@ -51,9 +58,11 @@
                                 <label for="post" class="field select">
                                     <select id="post" name="post" class="gui-input" placeholder="职务...">
                                         <option value="员工">员工</option>
-                                        <option value="部门经理">部门经理</option>
-                                        <option value="总经理">总经理</option>
-                                        <option value="财务">财务</option>
+                                        <c:if test="${sessionScope.employee.post==Contant.POST_GM}">
+                                            <option value="部门经理">部门经理</option>
+                                            <option value="总经理">总经理</option>
+                                            <option value="财务">财务</option>
+                                        </c:if>
                                     </select>
                                     <i class="arrow double"></i>
                                 </label>

@@ -47,6 +47,7 @@ public interface EmployeeDao {
      * 根据 did post 查询员工列表
      * @param did
      * @param post
+     * @return 员工列表
      */
     List<Employee> selectByDepartmentAndPost(@Param("did") String did,@Param("post") String post);
 

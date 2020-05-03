@@ -58,21 +58,21 @@
                             </div>
                         </div>
                         <div class="section row">
-                            <div class="col-md-3">
-                                <label for="totalMoney" class="field prepend-icon">
-                                    <form:input id="totalMoney" path="claimVoucher.totalAmount" class="gui-input" placeholder="总金额..." readonly="readonly"/>
-                                    <label for="totalMoney" class="field-icon">
-                                        <i class="fa fa-user"></i>
-                                    </label>
-                                </label>
-                            </div>
                             <div class="section" style="text-align:right;">
-                                <div class="col-md-9">
+                                <div class="col-md-12">
                                     <button type="button" class="button" id="addItemButton"> + </button>
                                 </div>
                             </div>
                         </div>
                         <div class="panel-footer text-right">
+                            <div class="col-md-3">
+                                <label for="totalMoney" class="field prepend-icon">
+                                    <form:input id="totalMoney" path="claimVoucher.totalAmount" class="gui-input" placeholder="总金额..." readonly="true"/>
+                                    <label for="totalMoney" class="field-icon">
+                                        <i class="fa fa-user"></i>
+                                    </label>
+                                </label>
+                            </div>
                             <button type="submit" class="button"> 保存 </button>
                             <button type="button" class="button" onclick="javascript:window.history.go(-1);"> 返回 </button>
                         </div>

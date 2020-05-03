@@ -1,4 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page import="cn.edu.njit.oa.global.Contant" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +15,7 @@
 <div id="main">
     <header class="navbar navbar-fixed-top navbar-shadow">
         <div class="navbar-branding">
-            <a class="navbar-brand" href="dashboard.html">
+            <a class="navbar-brand" href="">
                 <b style="font-family: 'Comic Sans MS';font-size: 25px;text-indent:10px;letter-spacing: 5px">CD4356</b>
             </a>
             <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
@@ -74,14 +76,14 @@
             </header>
 
             <ul class="nav sidebar-menu">
-                <li class="sidebar-label pt20">日常管理</li>
+                <li class="sidebar-label pt20">个人办公</li>
                 <li>
                     <a href="/claim_voucher/deal">
                         <span class="glyphicon glyphicon-book"></span>
                         <span class="sidebar-title">待处理报销单</span>
                         <span class="sidebar-title-tray">
-                <span class="label label-xs bg-primary">New</span>
-              </span>
+                        <span class="label label-xs bg-primary">New</span>
+                        </span>
                     </a>
                 </li>
                 <li class="active">
@@ -109,10 +111,12 @@
                             <a href="/employee/list">
                                 <span class="glyphicon glyphicon-calendar"></span> 所有员工 </a>
                         </li>
-                        <li class="active">
-                            <a href="/employee/toAdd">
-                                <span class="glyphicon glyphicon-check"></span> 添加员工 </a>
-                        </li>
+                        <c:if test="${sessionScope.employee.post==Contant.POST_FM || sessionScope.employee.post==Contant.POST_GM}">
+                            <li class="active">
+                                <a href="/employee/toAdd">
+                                    <span class="glyphicon glyphicon-check"></span> 添加员工 </a>
+                            </li>
+                        </c:if>
                     </ul>
                 </li>
                 <li>
@@ -126,10 +130,12 @@
                             <a href="/department/list">
                                 <span class="glyphicon glyphicon-calendar"></span> 所有部门 </a>
                         </li>
-                        <li class="active">
-                            <a href="/department/toAdd">
-                                <span class="glyphicon glyphicon-check"></span> 添加部门 </a>
-                        </li>
+                        <c:if test="${sessionScope.employee.post==Contant.POST_GM}">
+                            <li class="active">
+                                <a href="/department/toAdd">
+                                    <span class="glyphicon glyphicon-check"></span> 添加部门 </a>
+                            </li>
+                        </c:if>
                     </ul>
                 </li>
 
