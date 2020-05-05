@@ -16,7 +16,7 @@
     <header class="navbar navbar-fixed-top navbar-shadow">
         <div class="navbar-branding">
             <a class="navbar-brand" href="">
-                <b style="font-family: 'Comic Sans MS';font-size: 25px;text-indent:10px;letter-spacing: 5px">CD4356</b>
+                <b style="font-family: 'Comic Sans MS';font-size: 25px;text-indent:10px;letter-spacing: 5px">办公自动化系统</b>
             </a>
             <span id="toggle_sidemenu_l" class="ad ad-lines"></span>
         </div>
@@ -78,25 +78,93 @@
             <ul class="nav sidebar-menu">
                 <li class="sidebar-label pt20">个人办公</li>
                 <li>
-                    <a href="/claim_voucher/deal">
-                        <span class="glyphicon glyphicon-book"></span>
-                        <span class="sidebar-title">待处理报销单</span>
-                        <span class="sidebar-title-tray">
-                        <span class="label label-xs bg-primary">New</span>
-                        </span>
+                    <a class="accordion-toggle" href="#">
+                        <span class="glyphicon glyphicon-check"></span>
+                        <span class="sidebar-title">报销申请</span>
+                        <span class="caret"></span>
                     </a>
-                </li>
-                <li class="active">
-                    <a href="/claim_voucher/self">
-                        <span class="glyphicon glyphicon-home"></span>
-                        <span class="sidebar-title">个人报销单</span>
+                    <ul class="nav sub-nav">
+                        <li>
+                            <a href="/claim_voucher/deal">
+                                <span class="glyphicon glyphicon-book"></span>
+                                <span class="sidebar-title">待处理报销单</span>
+                                <span class="sidebar-title-tray">
+                            <span class="label label-xs bg-primary">New</span>
+                            </span>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="/claim_voucher/self">
+                                <span class="glyphicon glyphicon-home"></span>
+                                <span class="sidebar-title">个人报销单</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/claim_voucher/to_add">
+                                <span class="fa fa-calendar"></span>
+                                <span class="sidebar-title">填写报销单</span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <a class="accordion-toggle" href="#">
+                        <span class="glyphicon glyphicon-check"></span>
+                        <span class="sidebar-title">考勤申请</span>
+                        <span class="caret"></span>
                     </a>
-                </li>
-                <li>
-                    <a href="/claim_voucher/to_add">
-                        <span class="fa fa-calendar"></span>
-                        <span class="sidebar-title">填写报销单</span>
+                    <ul class="nav sub-nav">
+                        <li class="active">
+                            <a href="/work_attendance/list">
+                                <span class="glyphicon glyphicon-home"></span>
+                                <span class="sidebar-title">个人考勤</span>
+                                <span class="sidebar-title-tray">
+                            </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/work_attendance/toAdd">
+                                <span class="glyphicon glyphicon-book"></span>
+                                <span class="sidebar-title">考勤申请</span>
+                                <span class="sidebar-title-tray">
+                            </span>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <a class="accordion-toggle" href="#">
+                        <span class="glyphicon glyphicon-check"></span>
+                        <span class="sidebar-title">工作台</span>
+                        <span class="caret"></span>
                     </a>
+                    <ul class="nav sub-nav">
+                        <li class="active">
+                            <a href="/task/list">
+                                <span class="glyphicon glyphicon-tasks"></span>
+                                <span class="sidebar-title">任务中心</span>
+                                <span class="sidebar-title-tray">
+                            </span>
+                            </a>
+                        </li>
+                        <c:if test="${sessionScope.employee.post==Contant.POST_FM}">
+                            <li>
+                                <a href="/task/to_add">
+                                    <span class="glyphicon glyphicon-cloud"></span>
+                                    <span class="sidebar-title">新建任务</span>
+                                    <span class="sidebar-title-tray">
+                            </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/work_attendance/approval">
+                                    <span class="glyphicon glyphicon-cloud"></span>
+                                    <span class="sidebar-title">审批</span>
+                                    <span class="sidebar-title-tray">
+                            </span>
+                                </a>
+                            </li>
+                        </c:if>
+                    </ul>
+
                 </li>
 
                 <li class="sidebar-label pt15">基础信息管理</li>

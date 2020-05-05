@@ -172,7 +172,7 @@ public class ClaimVoucherServiceImpl implements ClaimVoucherService {
         dealRecord.setDealTime(new Date());
 
         if (dealRecord.getDealType().equals(Contant.DEAL_PASS)){
-            // 如果报销金额小于5000或者审核人
+            // 如果报销金额小于5000或者审核人为总经理，转给财务；否则转给总经理进行复审
             if(claimVoucher.getTotalAmount()<=Contant.LIMIT_CHECK || employee.getPost().equals(Contant.POST_GM)){
                 claimVoucher.setStatus(Contant.CLAIMVOUCHER_APPROVED);
                 claimVoucher.setNextDealId(employeeDao.selectByDepartmentAndPost(null,Contant.POST_CASHIER).get(0).getId());
@@ -189,11 +189,6 @@ public class ClaimVoucherServiceImpl implements ClaimVoucherService {
             claimVoucher.setNextDealId(claimVoucher.getCreateId());
 
             dealRecord.setDealResult(Contant.CLAIMVOUCHER_BACK);
-        }else if(dealRecord.getDealType().equals(Contant.DEAL_REJECT)){
-            claimVoucher.setStatus(Contant.CLAIMVOUCHER_TERMINATED);
-            claimVoucher.setNextDealId(null);
-
-            dealRecord.setDealResult(Contant.CLAIMVOUCHER_TERMINATED);
         }else if(dealRecord.getDealType().equals(Contant.DEAL_REJECT)){
             claimVoucher.setStatus(Contant.CLAIMVOUCHER_TERMINATED);
             claimVoucher.setNextDealId(null);

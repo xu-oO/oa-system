@@ -18,6 +18,6 @@ public class ExpectAspect {
 
     @AfterThrowing(value = "exceptionPointcut()",throwing = "throwable")
     public void handleException(Throwable throwable) {
-        System.out.println("全局异常捕获:" + throwable.getMessage());
+        System.out.println("全局异常捕获:" + throwable);
     }
 }

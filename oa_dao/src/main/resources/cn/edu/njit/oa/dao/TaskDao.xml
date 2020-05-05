@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 4.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.njit.oa.dao.TaskDao">
+
+    <!--配置实体类属性与表字段的映射关系,结果集-->
+    <resultMap id="task" type="Task">
+        <!--主键字段用id配置,非主键字段用result配置 【property:实体类属性名,column:表字段名】-->
+        <id property="id" column="id" javaType="int"/>
+        <result property="name" column="name" javaType="String"/>
+        <result property="taskContent" column="task_content" javaType="String"/>
+        <result property="employeeId" column="employee_id" javaType="String"/>
+        <result property="status" column="status" javaType="String"/>
+    </resultMap>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="Task">
+        insert into task(name,task_content,employee_id,status)
+        values (#{name},#{taskContent},#{employeeId},#{status})
+    </insert>
+
+    <update id="updateStatusById" parameterType="Task">
+        update task set status=#{status}
+        where id=#{id}
+    </update>
+
+
+    <select id="findByEmployeeId" parameterType="String" resultMap="task">
+        select id,name,task_content,employee_id,status from task
+        where employee_id=#{employeeId}
+    </select>
+
+    <select id="findByDepartmentId" resultMap="task">
+        select t.* from task t left join employee e on e.id=t.employee_id
+        <where>
+            <if test="did!=null">
+                and e.department_id=#{did}
+            </if>
+        </where>
+    </select>
+
+</mapper>

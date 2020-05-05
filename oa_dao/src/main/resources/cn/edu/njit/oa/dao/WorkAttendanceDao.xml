@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.njit.oa.dao.WorkAttendanceDao">
+
+    <resultMap id="workAttendance" type="WorkAttendance">
+        <id property="id" column="id" javaType="int"/>
+        <result property="attendanceType" column="attendance_type" javaType="String"/>
+        <result property="startTime" column="start_time" javaType="java.util.Date"/>
+        <result property="endTime" column="end_time" javaType="java.util.Date"/>
+        <result property="remarks" column="remarks" javaType="String"/>
+        <result property="employeeId" column="employee_id" javaType="String"/>
+        <result property="result" column="result" javaType="String"/>
+
+    </resultMap>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="WorkAttendance">
+        insert into work_attendance(attendance_type,start_time,end_time,remarks,employee_id,result)
+        values (#{attendanceType},#{startTime},#{endTime},#{remarks},#{employeeId},#{result})
+    </insert>
+
+    <update id="update" parameterType="WorkAttendance">
+        update work_attendance
+        set attendance_type=#{attendanceType},
+            start_time=#{startTime},end_time=#{endTime},remarks=#{remarks},employee_id=#{employeeId},result=#{result}
+        where id=#{id}
+    </update>
+
+    <update id="updateResultById" parameterType="WorkAttendance">
+        update work_attendance set result=#{result}
+        where id=#{id}
+    </update>
+
+    <delete id="delete" parameterType="Integer">
+        delete from work_attendance where id=#{id}
+    </delete>
+
+    <select id="findByEmployeeId" parameterType="String" resultMap="workAttendance">
+        select attendance_type,start_time,end_time,remarks,employee_id,result from work_attendance
+        where employee_id=#{employeeId}
+    </select>
+    
+    <select id="findByDepartmentId" resultMap="workAttendance">
+        select wa.* from work_attendance wa left join employee e on e.id=wa.employee_id
+        <where>
+            <if test="did!=null">
+               and e.department_id=#{did}
+            </if>
+            and wa.result='已提交'
+        </where>
+    </select>
+
+
+</mapper>

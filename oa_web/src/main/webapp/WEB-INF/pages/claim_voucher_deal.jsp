@@ -43,8 +43,8 @@
                             <th class="hidden-xs">事由</th>
                             <th>状态</th>
                             <th class="hidden-xs">创建人</th>
-                            <th class="hidden-xs">金额</th>
-                            <th class="text-center">创建时间</th>
+                            <th class="text-center">金额</th>
+                            <th class="hidden-xs">创建时间</th>
                             <th>操作</th>
                         </tr>
                         </thead>

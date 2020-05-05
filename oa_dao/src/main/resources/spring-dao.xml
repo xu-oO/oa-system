@@ -24,7 +24,7 @@
         <property name="dataSource" ref="dataSource"/>
         <!--配置别名-->
         <property name="typeAliasesPackage" value="cn.edu.njit.oa.entity"/>
-        <!--指定mapper.xml文件位置,如果不指定,则mapper.xml文件就必须放在cn.edu.njit.ao.dao包下-->
+        <!--指定mapper.xml文件位置,如果不指定,则mapper.xml文件就必须放在cn.edu.njit.oa.dao包下-->
     </bean>
 
     <!-- 4、自动扫描器 -->

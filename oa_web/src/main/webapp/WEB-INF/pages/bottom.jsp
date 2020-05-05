@@ -44,6 +44,20 @@
 <script src="/assets/js/main.js"></script>
 <script type="text/javascript" src="/js/pages.js"></script>
 <script type="text/javascript" src="/js/items.js"></script>
+
+<link type="text/css" href="/assets/js/datetimepicker/jquery.datetimepicker.css" rel="stylesheet" />
+<script type ="text/javascript" src="/assets/js/datetimepicker/jquery.datetimepicker.js"></script>
+
+<script type="text/javascript">
+    $("#startTime").prop("readonly", true).datetimepicker({
+        dateFormat: 'yy-mm-dd',
+        timepicker: false
+    });
+    $("#endTime").prop("readonly", true).datetimepicker({
+        dateFormat: 'yy-mm-dd',
+        timepicker: false
+    });
+</script>
 </body>
 </html>
 

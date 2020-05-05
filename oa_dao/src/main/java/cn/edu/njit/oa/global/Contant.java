@@ -65,4 +65,17 @@ public class Contant {
     public static final String DEAL_PASS="通过";
     public static final String DEAL_PAID="打款";
 
+    /**
+     * 考勤类型
+     */
+    public static final String ATT_NORMAL="考勤";
+    public static final String ATT_LEAVE="请假";
+
+    /**
+     * 任务状态
+     */
+    public static final String TASK_CREATE = "新建";
+    public static final String TASK_DONE = "完成";
+
+
 }
