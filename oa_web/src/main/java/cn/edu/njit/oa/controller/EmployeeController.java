@@ -64,4 +64,17 @@ public class EmployeeController {
         return "redirect:/employee/list";
     }
 
+    @RequestMapping("/toRegister")
+    public String toRegister() {
+        System.out.println("注册！");
+
+        return "employee_register";
+    }
+
+    @RequestMapping("/register")
+    public String register() {
+
+        return "redirect:/to_login";
+    }
+
 }

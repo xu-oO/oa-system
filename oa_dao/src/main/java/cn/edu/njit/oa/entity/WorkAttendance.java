@@ -11,9 +11,9 @@ import java.util.Date;
 public class WorkAttendance {
     private int id;
     private String attendanceType;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    @DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
     private Date startTime;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    @DateTimeFormat(pattern = "yyyy/MM/dd HH:mm")
     private Date endTime;
     private String remarks;
     private String employeeId;

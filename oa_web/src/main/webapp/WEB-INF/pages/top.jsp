@@ -177,7 +177,7 @@
                     <ul class="nav sub-nav">
                         <li>
                             <a href="/employee/list">
-                                <span class="glyphicon glyphicon-calendar"></span> 所有员工 </a>
+                                <span class="glyphicon glyphicon-calendar"></span> 员工列表 </a>
                         </li>
                         <c:if test="${sessionScope.employee.post==Contant.POST_FM || sessionScope.employee.post==Contant.POST_GM}">
                             <li class="active">
@@ -196,7 +196,7 @@
                     <ul class="nav sub-nav">
                         <li>
                             <a href="/department/list">
-                                <span class="glyphicon glyphicon-calendar"></span> 所有部门 </a>
+                                <span class="glyphicon glyphicon-calendar"></span> 部门列表 </a>
                         </li>
                         <c:if test="${sessionScope.employee.post==Contant.POST_GM}">
                             <li class="active">

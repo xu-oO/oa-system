@@ -40,6 +40,7 @@
             <!--不拦截含有login的请求-->
             <mvc:exclude-mapping path="/to_login"/>
             <mvc:exclude-mapping path="/login"/>
+            <mvc:exclude-mapping path="/employee/toRegister"/>
             <bean class="cn.edu.njit.oa.global.GlobalInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>

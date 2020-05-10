@@ -45,6 +45,7 @@
                         </div>
                         <div class="panel-footer clearfix">
                             <button type="submit" class="button btn-primary mr10 pull-right">登录</button>
+                            <a href="/employee/toRegister" class="button btn-primary mr10 pull-right">注册</a>
                             <label class="switch ib switch-primary mt10">
                                 <input type="checkbox" name="remember" id="remember" checked="true">
                                 <label for="remember" data-on="是" data-off="否"></label>
