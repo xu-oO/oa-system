@@ -49,11 +49,11 @@
 <script type ="text/javascript" src="/assets/js/datetimepicker/jquery.datetimepicker.js"></script>
 
 <script type="text/javascript">
-    $("#startTime").prop("readonly", true).datetimepicker({
+    $("#startTime").datetimepicker({
         dateFormat: 'yy-mm-dd',
         timepicker: false
     });
-    $("#endTime").prop("readonly", true).datetimepicker({
+    $("#endTime").datetimepicker({
         dateFormat: 'yy-mm-dd',
         timepicker: false
     });
